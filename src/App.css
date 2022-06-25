@@ -1,38 +1,133 @@
-.App {
-  text-align: center;
+*{
+    font-family: Poppins,sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.clock{
+    margin-top: 10vh;
+    background-color: pink;
+    width: calc(--size/2);
+    height: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding:10vh 10vw;
+    border-radius: 5px;
+    text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.flex{
+    display: flex;
+    padding: 10px 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.clock_box{
+    font-size: xx-large;
+    color: aqua;
+    padding: calc(10%) 0;
+    text-align: center;
+    width: calc(45%);
+    height: calc(450%);
+    background-color:black;
+    margin: 5px 6px;
+    border-radius: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.start_timer{
+    margin-top: 2vh;
+    border-radius: 5px;
+    padding: 10px 35px;
+    background:teal;
+    border: transparent;
+    z-index: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.add_drop{
+    margin: 1rem auto;
+    border-radius: 5px;
+    background-color: crimson;
+    width:calc(--size/2);
+    height: max-content;
+    text-align: center;
+}
+#item , .date{
+    border-radius: 5px ;
+    margin-left:  auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: calc(--size/5);
+    line-height: 30px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+#addexp{
+    border-radius: 3px;
+    height: max-content;
+    width: 155px;
+    margin: 1rem;
+}
+.aft{
+    border: 5px solid green;
+}
+
+.block{
+    visibility: hidden;
+    padding-bottom: 2rem;
+}
+#info{
+    margin-left: auto;
+    margin-right: auto;
+    background-color:rgb(255, 124, 42);
+    border-radius: 5px;
+    width: calc(--size/2);
+    height: max-content;
+    justify-content:space-around;
+    padding: 1rem 1rem;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.image{ 
+    background-color: rgb(111, 172, 109);
+    border-radius: calc(50%);
+    padding: 3vh 3vw;
+    margin-left: -8%;
+    height: auto;
+}
+
+.image img{
+    border-radius: calc(50%);
+    width: 80px;
+}
+
+.person_info{
+    margin-left:-8%;
+}
+.person_name{
+    line-height:50px;
+    font-size: xx-large;
+    font-weight: bolder;
+}
+.person_email{
+    font-weight: bold;
+}
+#del_button{
+    height: 7vh;
+    width: 17vw;
+    margin-right: -8%;
+    border-radius: 2px;
+    border: transparent;
+    background: transparent;
+    text-decoration: none;
+}
+
+#del_button img{
+    height: 45px;
+}
+
+.del_effect{
+    transform: rotateX(180deg);
+    transition: .6s;
+}
+
+.justify{
+    flex-wrap: wrap;
 }
