@@ -166,7 +166,7 @@
     border-radius: 5px;
     padding: 1rem auto;
     margin-top: 1rem;
-    background-color: rgb(128, 12, 12);
+    background-color: rgba(225, 0, 0, 0.818);
     flex-direction: row;
     flex-wrap: nowrap;
     overflow-y:hidden ;

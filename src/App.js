@@ -4,6 +4,7 @@ import Items from "./Items";
 
 function App() {
 
+  const [nalla, setNalla] = useState("true")
   const [min, setMin] = useState(1);
   const [sec, setSec] = useState(30);
   const [name, setName] = useState("");
@@ -13,9 +14,9 @@ function App() {
   const [cost, setCost] = useState("");
   const [date, setDate] = useState("");
   const [expenditure, setExpenditure] = useState({
-    a:"",
-    b:"",
-    c:"",
+    a: "",
+    b: "",
+    c: "",
   });
   const [expenseList, setExpenseList] = useState([])
 
@@ -73,31 +74,49 @@ function App() {
   }
 
 
-  const generateExpense=(event) =>{
+  const generateExpense = (event) => {
     event.preventDefault();
+    if (nalla.match("true")) {
+      document.getElementById("jan").children[1].style.height = "20vh";
+      document.getElementById("feb").children[1].style.height = "50vh";
+      document.getElementById("mar").children[1].style.height = "20vh";
+      document.getElementById("apr").children[1].style.height = "10vh";
+      document.getElementById("may").children[1].style.height = "35vh";
+      document.getElementById("jun").children[1].style.height = "5vh";
+      document.getElementById("jul").children[1].style.height = "17vh";
+      document.getElementById("aug").children[1].style.height = "20vh";
+      document.getElementById("sep").children[1].style.height = "41vh";
+      document.getElementById("oct").children[1].style.height = "20vh";
+      document.getElementById("nov").children[1].style.height = "25vh";
+      document.getElementById("dec").children[1].style.height = "30vh";
+      setNalla("false")
+    }
+    else {
+      document.getElementById("jan").children[1].style.height = "30vh";
+      document.getElementById("feb").children[1].style.height = "20vh";
+      document.getElementById("mar").children[1].style.height = "39vh";
+      document.getElementById("apr").children[1].style.height = "29vh";
+      document.getElementById("may").children[1].style.height = "60vh";
+      document.getElementById("jun").children[1].style.height = "30vh";
+      document.getElementById("jul").children[1].style.height = "32vh";
+      document.getElementById("aug").children[1].style.height = "45vh";
+      document.getElementById("sep").children[1].style.height = "26vh";
+      document.getElementById("oct").children[1].style.height = "47vh";
+      document.getElementById("nov").children[1].style.height = "36vh";
+      document.getElementById("dec").children[1].style.height = "20vh";
+      setNalla("true")
+    }
     setExpenditure({
-      a:item,
-      b:cost,
-      c:date,
+      a: item,
+      b: cost,
+      c: date,
     })
-    setExpenseList([...expenseList,{
-      item:expenditure.a,
-      cost:expenditure.b,
-      date:expenditure.c
+    setExpenseList([...expenseList, {
+      item: expenditure.a,
+      cost: expenditure.b,
+      date: expenditure.c
     }])
     console.log(expenseList)
-    document.getElementById("jan").children[1].style.height="20vh";
-    document.getElementById("feb").children[1].style.height="50vh";
-    document.getElementById("mar").children[1].style.height="20vh";
-    document.getElementById("apr").children[1].style.height="10vh";
-    document.getElementById("may").children[1].style.height="35vh";
-    document.getElementById("jun").children[1].style.height="5vh";
-    document.getElementById("jul").children[1].style.height="17vh";
-    document.getElementById("aug").children[1].style.height="20vh";
-    document.getElementById("sep").children[1].style.height="48vh";
-    document.getElementById("oct").children[1].style.height="20vh";
-    document.getElementById("nov").children[1].style.height="25vh";
-    document.getElementById("dec").children[1].style.height="30vh";
   }
 
   return (
@@ -147,7 +166,7 @@ function App() {
           </div>
           <button type="submit" class="sub_exp">Generate Graph</button>
           <div class="exp_cards">
-            {expenseList.length>0 && expenseList.map((itm)=>{return(<div class="exp_info_card">{itm.item}<br />{itm.cost}<br/>{itm.date}</div>)})}
+            {expenseList.length > 0 && expenseList.map((itm) => { return (<div class="exp_info_card">{itm.item}<br />{itm.cost}<br />{itm.date}</div>) })}
           </div>
         </form>
       </div>
