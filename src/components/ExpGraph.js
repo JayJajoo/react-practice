@@ -1,26 +1,127 @@
-import React from 'react'
+import { generateUtilityClass } from '@mui/material'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import "../app.css"
 
-function ExpGraph() {
+function ExpGraph(props) {
+
+    const [exp, setExp] = useState({
+        "jan": null,
+        "feb": null,
+        "mar": null,
+        "apr": null,
+        "may": null,
+        "jun": null,
+        "jul": null,
+        "aug": null,
+        "sep": null,
+        "oct": null,
+        "nov": null,
+        "dec": null,
+    })
+
+    const genExp=(event)=>{
+        event.preventDefault();
+        switch (props.value.month) {
+            case 1:
+                setExp({
+                    ...exp,
+                    "jan": exp["jan"] + props.value.cost,
+                })
+                break;
+            case 2:
+                setExp({
+                    ...exp,
+                    "feb": exp["feb"] + props.value.cost,
+                })
+                break;
+            case 3:
+                setExp({
+                    ...exp,
+                    "mar": exp["mar"] + props.value.cost,
+                })
+                break;
+            case 4:
+                setExp({
+                    ...exp,
+                    "apr": exp["apr"] + props.value.cost,
+                })
+                break;
+            case 5:
+                setExp({
+                    ...exp,
+                    "may": exp["may"] + props.value.cost,
+                })
+                break;
+            case 6:
+                setExp({
+                    ...exp,
+                    "jun": exp["jun"] + props.value.cost,
+                })
+                break;
+            case 7:
+                setExp({
+                    ...exp,
+                    "jul": exp["jul"] + props.value.cost,
+                })
+                break;
+            case 8:
+                setExp({
+                    ...exp,
+                    "aug": exp["auq"] + props.value.cost,
+                })
+                break;
+            case 9:
+                setExp({
+                    ...exp,
+                    "sep": exp["sep"] + props.value.cost,
+                })
+                break;
+            case 10:
+                setExp({
+                    ...exp,
+                    "oct": exp["oct"] + props.value.cost,
+                })
+                break;
+            case 11:
+                setExp({
+                    ...exp,
+                    "nov": exp["nov"] + props.value.cost,
+                })
+                break;
+            case 12:
+                setExp({
+                    ...exp,
+                    "dec": exp["dec"] + props.value.cost,
+                })
+                break;
+        }
+    }
+
+    useEffect(()=>{
+        console.log(exp)
+    },[exp])
+
     return (
-        
+
         <div>
-            <div class="graph flex">
-                <div class="bars" id="jan"><p class="graph_text">Jan</p><div id="changing_bars"></div></div>
-                <div class="bars" id="feb"><p class="graph_text">Feb</p><div id="changing_bars"></div></div>
-                <div class="bars" id="mar"><p class="graph_text">Mar</p><div id="changing_bars"></div></div>
-                <div class="bars" id="apr"><p class="graph_text">Apr</p><div id="changing_bars"></div></div>
-                <div class="bars" id="dec"><p class="graph_text">May</p><div id="changing_bars"></div></div>
-                <div class="bars" id="may"><p class="graph_text">Jun</p><div id="changing_bars"></div></div>
-                <div class="bars" id="jun"><p class="graph_text">Jul</p><div id="changing_bars"></div></div>
-                <div class="bars" id="jul"><p class="graph_text">Aug</p><div id="changing_bars"></div></div>
-                <div class="bars" id="aug"><p class="graph_text">Sep</p><div id="changing_bars"></div></div>
-                <div class="bars" id="sep"><p class="graph_text">Oct</p><div id="changing_bars"></div></div>
-                <div class="bars" id="oct"><p class="graph_text">Nov</p><div id="changing_bars"></div></div>
-                <div class="bars" id="nov"><p class="graph_text">Dec</p><div id="changing_bars"></div></div>
-            </div>
-            <button type="submit" class="sub_exp">Generate Graph</button>
+            <form onSubmit={genExp}>
+                <div class="graph flex">
+                    <div class="bars" id="jan"><p class="graph_text">Jan</p><div id="changing_bars"></div></div>
+                    <div class="bars" id="feb"><p class="graph_text">Feb</p><div id="changing_bars"></div></div>
+                    <div class="bars" id="mar"><p class="graph_text">Mar</p><div id="changing_bars"></div></div>
+                    <div class="bars" id="apr"><p class="graph_text">Apr</p><div id="changing_bars"></div></div>
+                    <div class="bars" id="dec"><p class="graph_text">May</p><div id="changing_bars"></div></div>
+                    <div class="bars" id="may"><p class="graph_text">Jun</p><div id="changing_bars"></div></div>
+                    <div class="bars" id="jun"><p class="graph_text">Jul</p><div id="changing_bars"></div></div>
+                    <div class="bars" id="jul"><p class="graph_text">Aug</p><div id="changing_bars"></div></div>
+                    <div class="bars" id="aug"><p class="graph_text">Sep</p><div id="changing_bars"></div></div>
+                    <div class="bars" id="sep"><p class="graph_text">Oct</p><div id="changing_bars"></div></div>
+                    <div class="bars" id="oct"><p class="graph_text">Nov</p><div id="changing_bars"></div></div>
+                    <div class="bars" id="nov"><p class="graph_text">Dec</p><div id="changing_bars"></div></div>
+                </div>
+                <button type="submit" class="sub_exp">Generate Graph</button>
+            </form>
         </div>
     )
 }

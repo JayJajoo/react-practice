@@ -179,7 +179,7 @@
     flex-direction: column;
     color: aliceblue;
     border-radius: 5px;
-    height: 50vh;
+    height: 40vh;
     width: 125px;
     background-color: black;
     margin: 1rem 1rem;
@@ -192,7 +192,7 @@
 #changing_bars{
     border-radius: 1px;
     margin: 0 auto;
-    height: 35vh;
+    height: 0vh;
     width: 5px;
     transition: 1s ease-in;
     background-color: rgb(222, 46, 107);

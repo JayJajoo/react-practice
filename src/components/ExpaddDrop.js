@@ -14,7 +14,6 @@ function ExpaddDrop() {
     })
 
 
-
     const changes_item=(event)=>{
         setInfo({
             ...info,
@@ -60,7 +59,7 @@ function ExpaddDrop() {
                 {explist.length==0 && <div style={{color: 'white'}}>No expense added yet</div>}
                 {explist.length>0 && explist.map((item)=>{return(<ExpCards value={item}></ExpCards>)})}
             </div>
-            <ExpGraph></ExpGraph>
+            {explist.length>0 && <ExpGraph value={explist[explist.length-1]}></ExpGraph>}
         </div>
     )
 }
