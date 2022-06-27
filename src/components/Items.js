@@ -1,5 +1,5 @@
 import React from 'react'
-import "./app.css"
+import "../app.css"
 
 function Items(props) {
     const del_event=(event)=>{
