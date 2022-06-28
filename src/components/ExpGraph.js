@@ -5,6 +5,9 @@ import "../app.css"
 
 function ExpGraph(props) {
 
+
+    const [total, setTotal] = useState(null);
+
     const [exp, setExp] = useState({
         "jan": null,
         "feb": null,
@@ -20,87 +23,112 @@ function ExpGraph(props) {
         "dec": null,
     })
 
-    const genExp=(event)=>{
+    const cost=props.value.cost;
+
+    const genExp = (event) => {
         event.preventDefault();
         switch (props.value.month) {
             case 1:
                 setExp({
                     ...exp,
-                    "jan": exp["jan"] + props.value.cost,
+                    "jan": exp["jan"] + cost,
                 })
                 break;
             case 2:
                 setExp({
                     ...exp,
-                    "feb": exp["feb"] + props.value.cost,
+                    "feb": exp["feb"] + cost,
                 })
                 break;
             case 3:
                 setExp({
                     ...exp,
-                    "mar": exp["mar"] + props.value.cost,
+                    "mar": exp["mar"] + cost,
                 })
                 break;
             case 4:
                 setExp({
                     ...exp,
-                    "apr": exp["apr"] + props.value.cost,
+                    "apr": exp["apr"] + cost,
                 })
                 break;
             case 5:
                 setExp({
                     ...exp,
-                    "may": exp["may"] + props.value.cost,
+                    "may": exp["may"] + cost,
                 })
                 break;
             case 6:
                 setExp({
                     ...exp,
-                    "jun": exp["jun"] + props.value.cost,
+                    "jun": exp["jun"] + cost,
                 })
                 break;
             case 7:
                 setExp({
                     ...exp,
-                    "jul": exp["jul"] + props.value.cost,
+                    "jul": exp["jul"] + cost,
                 })
                 break;
             case 8:
                 setExp({
                     ...exp,
-                    "aug": exp["auq"] + props.value.cost,
+                    "aug": exp["auq"] + cost,
                 })
                 break;
             case 9:
                 setExp({
                     ...exp,
-                    "sep": exp["sep"] + props.value.cost,
+                    "sep": exp["sep"] + cost,
                 })
                 break;
             case 10:
                 setExp({
                     ...exp,
-                    "oct": exp["oct"] + props.value.cost,
+                    "oct": exp["oct"] + cost,
                 })
                 break;
             case 11:
                 setExp({
                     ...exp,
-                    "nov": exp["nov"] + props.value.cost,
+                    "nov": exp["nov"] + cost,
                 })
                 break;
             case 12:
                 setExp({
                     ...exp,
-                    "dec": exp["dec"] + props.value.cost,
+                    "dec": exp["dec"] + cost,
                 })
                 break;
         }
+
+        setTotal(total+cost)
+    }
+
+    const changeGraph=()=>{
+        document.getElementById("jan").children[1].style.height = ((exp["jan"]*100)/(total*2.5)).toString()+"vh"
+        document.getElementById("feb").children[1].style.height = ((exp["feb"]*100)/(total*2.5)).toString()+"vh"
+        document.getElementById("mar").children[1].style.height = ((exp["mar"]*100)/(total*2.5)).toString()+"vh"
+        document.getElementById("apr").children[1].style.height = ((exp["apr"]*100)/(total*2.5)).toString()+"vh"
+        document.getElementById("may").children[1].style.height = ((exp["may"]*100)/(total*2.5)).toString()+"vh"
+        document.getElementById("jun").children[1].style.height = ((exp["jun"]*100)/(total*2.5)).toString()+"vh"
+        document.getElementById("jul").children[1].style.height = ((exp["jul"]*100)/(total*2.5)).toString()+"vh"
+        document.getElementById("aug").children[1].style.height = ((exp["aug"]*100)/(total*2.5)).toString()+"vh"
+        document.getElementById("sep").children[1].style.height = ((exp["sep"]*100)/(total*2.5)).toString()+"vh"
+        document.getElementById("oct").children[1].style.height = ((exp["oct"]*100)/(total*2.5)).toString()+"vh"
+        document.getElementById("nov").children[1].style.height = ((exp["nov"]*100)/(total*2.5)).toString()+"vh"
+        document.getElementById("dec").children[1].style.height = ((exp["dec"]*100)/(total*2.5)).toString()+"vh"
+
     }
 
     useEffect(()=>{
-        console.log(exp)
-    },[exp])
+        console.log("total"+"\t"+total)
+        changeGraph();
+    },[total])
+
+    useEffect(() => {
+    }, [exp])
+
 
     return (
 
