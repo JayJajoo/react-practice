@@ -73,7 +73,7 @@ function ExpGraph(props) {
             case 8:
                 setExp({
                     ...exp,
-                    "aug": exp["auq"] + cost,
+                    "aug": exp["aug"] + cost,
                 })
                 break;
             case 9:

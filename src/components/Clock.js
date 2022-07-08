@@ -2,23 +2,29 @@ import React from 'react'
 import { useState,useEffect } from 'react';
 
 function Clock() {
+    const [on,setOn] = useState(false)
     const [min, setMin] = useState(1);
     const [sec, setSec] = useState(30);
     useEffect(() => {
-        if (min >= 0) {
-            if (sec > 0) {
-                setTimeout(() => { setSec(sec - 1); }, 1000);
-            }
-            if (sec === 0 && min > 0) {
-                setMin(min - 1);
-                setSec(2);
-            }
-            if (min === 0 && sec === 0) {
-                setSec(0);
-                return;
-            }
+        if(on==true){
+            const timer=setTimeout(()=>{
+                if(sec>0){
+                    setSec(sec-1);
+                }
+                if(sec==0 && min>0){
+                    setSec(59);
+                    setMin(min-1);
+                }
+                if(sec==0 && min==0){
+                    setSec(1);
+                    setMin(30);
+                    clearTimeout(timer);
+                    setOn(false);
+                    alert("time over")
+                }
+            },1000)
         }
-    }, [min, sec]);
+    },[on,sec,min]);
     return (
         <div>
             <div class="clock">
@@ -26,7 +32,7 @@ function Clock() {
                     <div class="clock_box">{min}</div>
                     <div class="clock_box">{sec}</div>
                 </div>
-                <button class="start_timer" type="submit">Start</button>
+                <button onClick={()=>setOn(true)} class="start_timer" type="submit">Start</button>
             </div>
         </div>
     )

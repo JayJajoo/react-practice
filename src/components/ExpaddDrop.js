@@ -35,7 +35,6 @@ function ExpaddDrop() {
     }
 
     useEffect(()=>{
-        console.log(explist);
     },[explist])
 
     const submits =(event)=> {
